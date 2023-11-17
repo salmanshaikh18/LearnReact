@@ -11,11 +11,9 @@
 
 ## Difference between dynamic routing and static routing.
 
-Dynamic routing allows you to handle different content based on the specific URL accessed, often involving parameters. It's flexible and can adapt to various situations during runtime.
-Example: 
+-> Dynamic routing allows you to handle different content based on the specific URL accessed, often involving parameters. It's flexible and can adapt to various situations during runtime.
 
-
-Static routing involves predefined routes where the content associated with each route is fixed and known at compile-time. The routing structure remains constant during the application's execution.
+-> Static routing involves predefined routes where the content associated with each route is fixed and known at compile-time. The routing structure remains constant during the application's execution.
 
 
 ## Dynamic Routing
@@ -145,3 +143,110 @@ In a React application, static routing is commonly implemented using a library l
    Clicking on these links will navigate to the corresponding routes without a full page reload.
 
 Static routing is suitable for applications where the navigation structure is known in advance and doesn't change frequently during runtime. It is a straightforward and efficient way to handle routing in many scenarios.
+
+
+## Configuring the Router
+
+-> We have to import createBrowserRouter from 'react-router-dom'
+
+-> createBrowserRouter allows us to define the routes as an array of object in which we can specify a path, the elements to be rendered when the path is browsed 
+
+
+## Problems with <a> tag
+
+-> It will reload the entire page when it is clicked.
+
+-> It disrupts user experience and can result in a slower page load time.
+
+-> This causes problems for single page applications(SPAs).
+
+-> So to solve this issue, react-router-dom gives us a `Link`.
+
+
+## Nested Routing
+
+-> Nested routing means routes inside another route.
+
+-> An <Outlet> should be used in parent route elements to render their child route elements.
+
+-> This allows nested UI to show up when child routes are rendered.
+
+-> If the parent route matched exactly, it will render a child index route or nothing if there is no index route.
+
+
+## Link
+
+A <Link> is an element that lets the user navigate to another page by clicking or tapping on it. In react-router-dom, a <Link> renders an accessible <a> element with a real href that points to the resource it's linking to. This means that things like right-clicking a <Link> work as you'd expect. You can use <Link reloadDocument> to skip client side routing and let the browser handle the transition normally (as if it were an <a href>).
+
+In React with React Router DOM, the `<Link>` tag is specifically used to create clickable links for navigation within your application. Here are its main uses:
+
+1. **Declarative Navigation:** `<Link>` allows you to define navigation in a declarative way. Instead of manually handling events or changing the URL through JavaScript, you declare links that users can click to navigate.
+
+   ```jsx
+   import { Link } from 'react-router-dom';
+
+   // ...
+
+   <Link to="/about">Go to About</Link>
+   ```
+
+2. **Preventing Full Page Reloads:** When a user clicks a `<Link>`, React Router DOM prevents the entire page from reloading. It updates the view efficiently and only replaces the content that needs to change, providing a smoother user experience.
+
+3. **Dynamic Routing:** `<Link>` works seamlessly with React Router's dynamic routing. You can include route parameters in the `to` prop to create dynamic links that adapt to different data or conditions.
+
+   ```jsx
+   <Link to={`/user/${userId}`}>User Profile</Link>
+   ```
+
+4. **Navigation Without Page Refresh:** Since React Router DOM is designed for single-page applications, using `<Link>` ensures that navigation happens without a full page refresh. This is crucial for creating a fast and responsive user interface.
+
+In summary, the `<Link>` tag in React Router DOM is a fundamental tool for building navigational elements in your application, providing a user-friendly and efficient way to move between different views or pages.
+
+
+# NavLink
+
+In React Router DOM, the `NavLink` component serves a similar purpose to the `Link` component, but with additional features tailored for navigation. Here are some key uses of `NavLink`:
+
+1. **Active Styles:** `NavLink` allows you to apply specific styles to the link when it matches the current URL. This is helpful for highlighting the active link in your navigation.
+
+   ```jsx
+   import { NavLink } from 'react-router-dom';
+
+   // ...
+
+   <NavLink to="/home" activeClassName="activeLink">Home</NavLink>
+   ```
+
+   With the above example, when the URL is "/home," the "activeLink" class will be applied to the `NavLink` component.
+
+2. **Active Classname:** Instead of inline styles, you can use the `activeClassName` prop to specify the class name that should be applied when the link is active.
+
+   ```jsx
+   <NavLink to="/about" activeStyle={{ fontWeight: 'bold', color: 'red' }}>About</NavLink>
+   ```
+
+   In this case, when the link is active, it will have bold text and a red color.
+
+3. **Exact Matching:** `NavLink` has an `exact` prop that, when set to `true`, ensures that the link is active only when the URL matches exactly.
+
+   ```jsx
+   <NavLink to="/" exact>Home</NavLink>
+   ```
+
+   This prevents partial matches and helps in scenarios where you want to highlight the "Home" link only when the URL is exactly "/".
+
+4. **Custom Active Condition:** You can use the `isActive` prop to define a custom condition for determining whether the link is active.
+
+   ```jsx
+   <NavLink
+     to="/products"
+     isActive={(match, location) => {
+       // Custom condition, e.g., only activate link on certain pages
+       return match !== null && location.pathname.startsWith('/products');
+     }}
+   >
+     Products
+   </NavLink>
+   ```
+
+These features make `NavLink` a powerful tool for creating dynamic and interactive navigation in React applications, providing enhanced styling and control over active links.
