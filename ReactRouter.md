@@ -314,3 +314,38 @@ In React Router DOM, the `<Outlet>` component is used in conjunction with the `<
    Here, `<Outlet>` can be used to render additional nested routes specific to the dynamic route.
 
 In summary, `<Outlet>` is a crucial component in React Router DOM for handling nested routes. It provides a way to define where child routes should be rendered within a parent route, allowing for a structured and dynamic route configuration in your application.
+
+
+## RouterProvider
+
+All data router objects are passed to this component to render your app and enable the rest of the data APIs.
+
+```javascript
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    children: [
+      {
+        path: "dashboard",
+        element: <Dashboard />,
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+    ],
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <RouterProvider
+    router={router}
+  />
+);
+```
