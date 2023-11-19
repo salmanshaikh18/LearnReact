@@ -461,3 +461,8 @@ In React with React Router DOM, the `useParams` hook is used to access the param
 
 These are just a few examples, and there are many other scenarios where `useParams` can be useful in React Router applications for handling dynamic data and navigation.
 
+
+## loader
+
+In React Router DOM, each route can define a "loader" function to provide data to the route element before it renders1. This feature only works if using a data router. The loader function simply reads the result of a fetch React Router manages internally, so you don't need to worry about it refetching when it re-renders for reasons outside of routing. This also means data returned is stable between renders, so you can safely pass it to dependency arrays in React hooks like useEffect2. There is also a wrapper for react-router called react-router-loading that allows you to load data before switching the screen3.
+
