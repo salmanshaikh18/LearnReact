@@ -40,33 +40,33 @@ By using the Context API in React, you can avoid prop drilling (passing props th
 
 1.1. **Create a new file for your context:**
 ```jsx
-// AppContext.js
+// UserContext.js
 import { createContext } from 'react';
 
-const AppContext = createContext();
+const UserContext = createContext();
 
-export default AppContext;
+export default UserContext;
 ```
 
 ### Step 2: Create a Provider Component
 
 2.1. **Create a provider component:**
 ```jsx
-// AppProvider.js
+// UserContextProvider.jsx
 import React, { useState } from 'react';
-import AppContext from './AppContext';
+import UserContext from './UserContext';
 
-const AppProvider = ({ children }) => {
+const UserContextProvider = ({ children }) => {
   const [yourState, setYourState] = useState(/* initial value */);
 
   return (
-    <AppContext.Provider value={{ yourState, setYourState }}>
+    <UserContext.Provider value={{ yourState, setYourState }}>
       {children}
-    </AppContext.Provider>
+    </UserContext.Provider>
   );
 };
 
-export default AppProvider;
+export default UserContextProvider;
 ```
 
 ### Step 3: Wrap Your App with the Provider
@@ -75,14 +75,14 @@ export default AppProvider;
 ```jsx
 // App.js
 import React from 'react';
-import AppProvider from './AppProvider';
+import UserContextProvider from './UserContextProvider';
 import YourComponent from './YourComponent';
 
 const App = () => {
   return (
-    <AppProvider>
+    <UserContextProvider>
       <YourComponent />
-    </AppProvider>
+    </UserContextProvider>
   );
 };
 
@@ -95,10 +95,10 @@ export default App;
 ```jsx
 // YourComponent.js
 import React, { useContext } from 'react';
-import AppContext from './AppContext';
+import UserContext from './UserContext';
 
 const YourComponent = () => {
-  const { yourState, setYourState } = useContext(AppContext);
+  const { yourState, setYourState } = useContext(UserContext);
 
   // Use yourState and setYourState in your component
 
