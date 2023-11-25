@@ -33,3 +33,15 @@ Here are some common use cases for the Context API in React:
    - When dealing with forms that are spread across different components, the Context API can be used to manage the form state globally. This can simplify form handling and validation.
 
 By using the Context API in React, you can avoid prop drilling (passing props through many levels of components) and make your code more maintainable and scalable. It's especially useful for managing global state and settings that need to be accessed by various parts of your application.
+
+Example:
+
+1 -> Create a component named context and inside it create a file named `UserContext.js`
+
+2 -> Add this on `UserContext.js`
+
+```javascript
+import React from "react";
+const UserContext =  React.createContext()
+export default UserContext;
+```
