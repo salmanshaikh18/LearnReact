@@ -1,5 +1,7 @@
 ## ContextApi
 
+"Context API ek aisa tool hai jiski madad se hum global values banakar unhe kisi bhi component mein access kar sakte hain."
+
 Certainly! In simple terms, the Context API in React is a tool that helps components share information with each other without the need to pass data through every level of the component tree. It acts as a kind of global messenger, making it easier to manage and access shared values, like themes or user authentication status, across different parts of your application. This way, you can avoid the hassle of repeatedly passing data down through multiple layers of components, keeping your code cleaner and more efficient.
 
 The Context API in React is a mechanism for sharing values like themes, user authentication status, or any other global state across the component tree without passing props manually at every level. It provides a way to pass data through the component tree without having to pass props down manually at every level.
