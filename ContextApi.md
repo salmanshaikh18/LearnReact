@@ -119,4 +119,4 @@ export default YourComponent;
 - **Step 3:** Wrap your main component with the provider.
 - **Step 4:** Consume the context in your components using the `useContext` hook.
 
-Now, any component wrapped in the `AppProvider` can access the shared state defined in the context without the need for prop drilling. Remember to adjust the state and functions in the context provider and consumer based on your application's needs.
+Now, any component wrapped in the `UserContextProvider` can access the shared state defined in the context without the need for prop drilling. Remember to adjust the state and functions in the context provider and consumer based on your application's needs.
