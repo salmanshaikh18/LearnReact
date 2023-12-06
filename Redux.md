@@ -55,7 +55,6 @@ export const todoSlice = createSlice({
 export const {addTodo, removeTodo} = todoSlice.actions
 
 export default todoSlice.reducer
-
 ```
 
 ## Step 3:
@@ -182,10 +181,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
   </Provider>,
 )
-
 ```
-
-
 
 
 ## Redux Toolkit
