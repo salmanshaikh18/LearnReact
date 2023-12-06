@@ -146,7 +146,8 @@ function Todos() {
 export default Todos
 ```
 
-## Inside `App.jsx`:
+## Step 4:
+Inside `App.jsx`:
 ```jsx
 import React from 'react'
 import './App.css'
@@ -166,7 +167,8 @@ const App = () => {
 export default App
 ```
 
-## Inside `main.jsx`:
+## Step 5: 
+Inside `main.jsx`:
 ```jsx
 import React from 'react'
 import ReactDOM from 'react-dom/client'
