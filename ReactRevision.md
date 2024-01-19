@@ -133,3 +133,31 @@ Here's what Babel does in a React project:
    - During the build process, Babel is applied to the React code, transforming it into a format that can be safely executed across various browsers.
 
 In summary, Babel is an essential tool in a React project, ensuring that developers can write React components using the latest JavaScript features and JSX syntax, while still producing code that is compatible with a broad range of browsers. The configuration typically includes the `@babel/preset-react` preset along with `@babel/preset-env` for broader ECMAScript compatibility.
+
+
+
+## React Fiber
+
+React Fiber is an internal architecture of the React library designed to enhance the performance and responsiveness of React applications. It was introduced in React version 16.0 as a complete rewrite of the core algorithm responsible for updating and rendering components. The name "Fiber" refers to a set of techniques for improving the way React performs reconciliation, rendering, and updates.
+
+Key concepts and features of React Fiber include:
+
+1. **Incremental Rendering:**
+   - One of the primary goals of React Fiber is to enable incremental rendering. Instead of completing the entire reconciliation and rendering process in one go, Fiber allows React to work on rendering a small unit of work, known as a "fiber," and then yield control to the main thread. This helps in creating smoother user experiences, especially in complex and dynamic applications.
+
+2. **Prioritization:**
+   - Fiber introduces the concept of priority to tasks in the reconciliation process. Different tasks (such as handling user interactions, animations, or network requests) are assigned priorities based on their importance. React can then prioritize high-priority tasks to ensure that critical updates are processed more quickly.
+
+3. **Virtual Stack Frame:**
+   - Fiber uses a virtual stack frame to keep track of the execution context during reconciliation. This allows React to pause and resume work, facilitating the interruption of tasks and enabling the implementation of features like suspense and error boundaries.
+
+4. **Concurrent Mode:**
+   - Concurrent Mode is a set of new features enabled by the React Fiber architecture. It allows React to work on multiple tasks simultaneously, even if they are part of the same update. Concurrent Mode is particularly useful for creating responsive user interfaces that can handle complex workloads without sacrificing performance.
+
+5. **Error Boundaries and Improved Error Handling:**
+   - React Fiber improves error handling by introducing error boundaries. Error boundaries are components that can catch JavaScript errors anywhere in their component tree and log those errors, display fallback UI, or take other actions. This helps prevent an entire component tree from failing due to an error in one part.
+
+6. **Better Support for Asynchronous Rendering:**
+   - Fiber lays the groundwork for better support of asynchronous rendering patterns. This is crucial for implementing features like suspense, which allows components to "suspend" rendering while waiting for data.
+
+It's important to note that React Fiber is mostly an internal implementation detail of React, and developers typically interact with the React library without needing to be aware of its specifics. However, the improvements introduced by React Fiber contribute to the overall performance and user experience of React applications. As of my last knowledge update in January 2022, React Fiber continues to be a foundational part of the React library.
