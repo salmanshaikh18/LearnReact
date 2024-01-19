@@ -1,3 +1,50 @@
+## Create Custom React
+
+### index.html : 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="./customReact.js"></script>
+</body>
+</html>
+```
+
+### renderReact.js : 
+```Javascript
+const reactElement = {
+    type: 'a',
+    props: {
+        href: 'https://www.google.com',
+        target: '_blank'
+    },
+    children: 'I am a Google.'
+}
+
+const mainContainer = document.querySelector('#root')
+
+const customRender = (reactElement, mainContainer) => {
+    const domElement = document.createElement(reactElement.type)
+    domElement.innerHTML = reactElement.children
+    // domElement.setAttribute('href', reactElement.props.href)
+    // domElement.setAttribute('target', reactElement.props.target)
+    for (prop in reactElement.props) {
+        if (prop == reactElement.children) continue;
+        domElement.setAttribute(prop, reactElement.props[prop])
+    }
+    mainContainer.appendChild(domElement)
+}
+
+customRender(reactElement, mainContainer)
+```
+
+
 ## Babel in web dev
 
 Babel is a popular JavaScript compiler used in web development. Its primary purpose is to transform ECMAScript 2015+ (ES6 and later) code into a backward-compatible version of JavaScript that can run in older browsers or environments that do not support the latest ECMAScript features.
