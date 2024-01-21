@@ -161,3 +161,42 @@ Key concepts and features of React Fiber include:
    - Fiber lays the groundwork for better support of asynchronous rendering patterns. This is crucial for implementing features like suspense, which allows components to "suspend" rendering while waiting for data.
 
 It's important to note that React Fiber is mostly an internal implementation detail of React, and developers typically interact with the React library without needing to be aware of its specifics. However, the improvements introduced by React Fiber contribute to the overall performance and user experience of React applications. As of my last knowledge update in January 2022, React Fiber continues to be a foundational part of the React library.
+
+
+## useCallback()
+
+In React.js, the `useCallback` hook is used to memoize a callback function. Memoization is a technique where the result of a function is cached and returned when the same inputs occur again, instead of recomputing the result. This can be useful in optimizing performance, particularly in scenarios where a function is passed down to child components.
+
+Here's a typical use case for `useCallback`:
+
+```jsx
+import React, { useState, useCallback } from 'react';
+
+function MyComponent() {
+  const [count, setCount] = useState(0);
+
+  // Without useCallback, a new function is created on every render
+  // This can lead to unnecessary re-renders of child components
+  const handleClick = () => {
+    setCount(count + 1);
+  };
+
+  // With useCallback, the function is memoized and only changes
+  // if the dependencies in the second argument change
+  const memoizedHandleClick = useCallback(() => {
+    setCount(count + 1);
+  }, [count]);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      {/* Without useCallback */}
+      <button onClick={handleClick}>Increment</button>
+      {/* With useCallback */}
+      <button onClick={memoizedHandleClick}>Increment (Memoized)</button>
+    </div>
+  );
+}
+```
+
+In the example above, the `handleClick` function is created on each render, potentially causing unnecessary re-renders of child components that receive this function as a prop. By using `useCallback`, the function is only recreated if the dependencies (in this case, `[count]`) change. This can help in optimizing performance, especially in scenarios where the callback is passed to child components that use `React.memo` or have their own `shouldComponentUpdate` optimizations.
