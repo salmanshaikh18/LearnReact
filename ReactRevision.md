@@ -200,3 +200,70 @@ function MyComponent() {
 ```
 
 In the example above, the `handleClick` function is created on each render, potentially causing unnecessary re-renders of child components that receive this function as a prop. By using `useCallback`, the function is only recreated if the dependencies (in this case, `[count]`) change. This can help in optimizing performance, especially in scenarios where the callback is passed to child components that use `React.memo` or have their own `shouldComponentUpdate` optimizations.
+
+
+## useRef()
+
+In React, the `useRef` hook is used to create a mutable object called a "ref" that can persist across renders of a functional component. The primary use cases for `useRef` include accessing and interacting with the DOM, managing focus, and persisting values across renders without causing re-renders.
+
+Here are some common use cases for `useRef`:
+
+1. **Accessing DOM Elements:**
+   `useRef` can be used to obtain a reference to a DOM element. This is useful for interacting with the DOM directly, such as reading or modifying the DOM element properties.
+
+   ```jsx
+   import React, { useRef, useEffect } from 'react';
+
+   function MyComponent() {
+     const myInputRef = useRef();
+
+     useEffect(() => {
+       // Focus on the input element when the component mounts
+       myInputRef.current.focus();
+     }, []);
+
+     return <input ref={myInputRef} />;
+   }
+   ```
+
+2. **Storing Mutable Values without Triggering Re-renders:**
+   Unlike state, updating the value of a `ref` does not cause the component to re-render. This makes `useRef` suitable for storing values that you don't want to trigger re-renders.
+
+   ```jsx
+   import React, { useRef, useEffect } from 'react';
+
+   function MyComponent() {
+     const counterRef = useRef(0);
+
+     useEffect(() => {
+       // This effect will not re-run if counterRef.current changes
+       console.log("Current counter value:", counterRef.current);
+     }, []);
+
+     return (
+       <button onClick={() => counterRef.current++}>
+         Increment Counter
+       </button>
+     );
+   }
+   ```
+
+3. **Preserving Values across Renders:**
+   Since the value stored in a `ref` persists across renders, it can be useful for preserving values that shouldn't trigger a re-render when changed.
+
+   ```jsx
+   import React, { useRef, useEffect } from 'react';
+
+   function MyComponent() {
+     const previousValueRef = useRef();
+
+     useEffect(() => {
+       // Save the current value to the ref after each render
+       previousValueRef.current = someValue;
+     }, [someValue]);
+
+     return <div>Previous Value: {previousValueRef.current}</div>;
+   }
+   ```
+
+It's important to note that `useRef` does not cause re-renders when its value changes, making it different from the `useState` hook. Instead, it provides a way to persist values across renders and interact with the DOM in a functional component.
