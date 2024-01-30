@@ -152,7 +152,7 @@ Static routing is suitable for applications where the navigation structure is kn
 -> createBrowserRouter allows us to define the routes as an array of object in which we can specify a path, the elements to be rendered when the path is browsed 
 
 
-## Problems with <a> tag
+## Problems with a tag
 
 -> It will reload the entire page when it is clicked.
 
