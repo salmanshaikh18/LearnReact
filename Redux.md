@@ -1,4 +1,4 @@
-Redux is a core library for state management and react-redux is a implementation of redux for wiring so redux and react can communicate.
+Redux is a core library of state management for JavaScript apps and react-redux is a implementation of redux for wiring so redux and react can communicate.
 
 Redux ek core library hai aur react-redux uska implementation hai wiring karne karne ke liye taaki react aur redux aapas me baat kar sake.
 
