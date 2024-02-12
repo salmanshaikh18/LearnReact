@@ -4,6 +4,38 @@ Redux ek core library hai aur react-redux uska implementation hai wiring karne k
 
 Har ek application me ek hi store hota hai use bolte hai single source of truth.
 
+## Redux, React-Redux, Redux-Toolkit
+
+Certainly, let's discuss these concepts in the context of React:
+
+**Redux in React:**
+In React applications, managing state becomes crucial as the app grows. Redux is a library used with React to centralize and organize the application's state. It provides a global store where all the data (state) of the application is kept.
+
+- **Store:** The store is like a big container that holds all the data for the entire application.
+
+- **Actions:** Actions are like messages that tell the store what happened. For example, a user clicking a button can trigger an action.
+
+- **Reducers:** Reducers are functions that decide how the state should change based on the received actions. They take the current state and an action, and then return a new state.
+
+**React Redux:**
+React Redux is a package that helps integrate Redux with React. It provides a way for React components to interact with the Redux store.
+
+- It uses the `connect` function to establish a connection between React components and the Redux store.
+  
+- Connected components can access the state from the store and dispatch actions to update the state.
+
+**Redux Toolkit in React:**
+Redux Toolkit is particularly helpful in simplifying Redux-related code in React applications.
+
+- **configureStore():** It provides a simple way to set up the Redux store, reducing boilerplate code.
+
+- **createSlice():** It makes writing reducers more straightforward. A slice includes the reducer logic and the actions in a more concise manner.
+
+- **createAsyncThunk():** For handling asynchronous operations like API calls, this utility makes it cleaner and easier to manage in React applications.
+
+So, in React, Redux helps manage the state, React Redux connects React components with the Redux store, and Redux Toolkit makes the use of Redux in React more convenient by providing useful utilities.
+
+
 ## Steps for using redux in react by creating todo app.
 
 ## Step 1:
