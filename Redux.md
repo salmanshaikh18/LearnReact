@@ -216,6 +216,32 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 ```
 
 
+## Payload
+
+In the context of full-stack development, "payload" in simple terms refers to the data that is sent or received in a communication process between different parts of a software application. It could be the information sent from a client (front-end) to a server (back-end) or vice versa. This data, or payload, carries the meaningful content or instructions necessary for the proper functioning of the application. For example, when you submit a form on a website, the data you entered (like your name and email) is the payload that gets sent to the server for processing.
+
+
+## Payload in Redux-Toolkit
+
+In the context of Redux Toolkit in React, "payload" is just a term used to describe the data that you send along with an action. 
+
+- When you dispatch an action in Redux Toolkit, you can attach some information or data to it, and that attached data is called the "payload."
+
+Here's a simple example:
+
+```javascript
+// Action created using Redux Toolkit
+const incrementByAmount = (amount) => {
+  return {
+    type: 'counter/incrementByAmount',
+    payload: amount, // Here, 'amount' is the payload
+  };
+};
+```
+
+In this example, the `payload` is the amount by which you want to increment the counter. So, in Redux Toolkit, the payload is just the data you're sending along with your actions to describe what needs to change in the application state.
+
+
 ## Redux Toolkit
 
 -> store
