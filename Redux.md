@@ -236,7 +236,7 @@ For example, if you have a counter application, and you dispatch an action to in
 
 ## store, reducers: its completely a part of redux
 
-## useSelecotr, useDispatch: its completely a part of react
+## useSelector, useDispatch: its completely a part of react
 
 ## useDispatch reducers ka use karte hue store ke andar values me changes karta hai
 
